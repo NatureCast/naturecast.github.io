@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+  <!-- Favicon (inline SVG leaf + circuit) -->
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
+
+  <!-- SEO -->
+  {% seo %}
+  {% feed_meta %}
+</head>
+<body>
+
+  <!-- ===================== SITE HEADER ===================== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-header__inner">
+
+        <!-- Logo -->
+        <a href="{{ '/' | relative_url }}" class="site-logo" aria-label="{{ site.title }} home">
+          <svg class="site-logo__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Brain / leaf hybrid icon -->
+            <circle cx="20" cy="20" r="18" fill="#0f2440" stroke="#2d7a4f" stroke-width="1.5"/>
+            <!-- Neural nodes -->
+            <circle cx="12" cy="16" r="2.5" fill="#3a9e67"/>
+            <circle cx="20" cy="10" r="2.5" fill="#3a9e67"/>
+            <circle cx="28" cy="16" r="2.5" fill="#3a9e67"/>
+            <circle cx="14" cy="26" r="2.5" fill="#3a9e67"/>
+            <circle cx="26" cy="26" r="2.5" fill="#3a9e67"/>
+            <circle cx="20" cy="21" r="3" fill="#7ecfa0"/>
+            <!-- Connections -->
+            <line x1="12" y1="16" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+            <line x1="20" y1="10" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+            <line x1="28" y1="16" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+            <line x1="14" y1="26" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+            <line x1="26" y1="26" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+            <line x1="12" y1="16" x2="20" y2="10" stroke="#1b5e3b" stroke-width=".8"/>
+            <line x1="20" y1="10" x2="28" y2="16" stroke="#1b5e3b" stroke-width=".8"/>
+            <line x1="12" y1="16" x2="14" y2="26" stroke="#1b5e3b" stroke-width=".8"/>
+            <line x1="28" y1="16" x2="26" y2="26" stroke="#1b5e3b" stroke-width=".8"/>
+          </svg>
+          <span class="site-logo__text">
+            <span class="site-logo__name">NatureCast</span>
+            <span class="site-logo__tagline">Nature × Intelligence</span>
+          </span>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="site-nav" id="main-nav" role="navigation" aria-label="Main navigation">
+          {% for link in site.nav_links %}
+          <a href="{{ link.url | relative_url }}" class="site-nav__link">{{ link.title }}</a>
+          {% endfor %}
+        </nav>
+
+        <!-- Mobile toggle -->
+        <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main id="main-content" role="main">
+    {{ content }}
+  </main>
+
+  <!-- ===================== SITE FOOTER ===================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__grid">
+
+        <!-- Brand -->
+        <div class="footer-col footer-col__brand">
+          <a href="{{ '/' | relative_url }}" class="site-logo" aria-label="{{ site.title }} home">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="20" cy="20" r="18" fill="#0f2440" stroke="#2d7a4f" stroke-width="1.5"/>
+              <circle cx="12" cy="16" r="2.5" fill="#3a9e67"/>
+              <circle cx="20" cy="10" r="2.5" fill="#3a9e67"/>
+              <circle cx="28" cy="16" r="2.5" fill="#3a9e67"/>
+              <circle cx="14" cy="26" r="2.5" fill="#3a9e67"/>
+              <circle cx="26" cy="26" r="2.5" fill="#3a9e67"/>
+              <circle cx="20" cy="21" r="3" fill="#7ecfa0"/>
+              <line x1="12" y1="16" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+              <line x1="20" y1="10" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+              <line x1="28" y1="16" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+              <line x1="14" y1="26" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+              <line x1="26" y1="26" x2="20" y2="21" stroke="#2d7a4f" stroke-width="1"/>
+            </svg>
+            <span class="site-logo__text">
+              <span class="site-logo__name" style="font-size:1.1rem;">NatureCast</span>
+            </span>
+          </a>
+          <p>Open research at the intersection of biology, neuroscience, and artificial intelligence.</p>
+        </div>
+
+        <!-- Research -->
+        <div class="footer-col">
+          <p class="footer-col__title">Research</p>
+          <ul>
+            <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}#publications">Publications</a></li>
+            <li><a href="{{ '/projects/' | relative_url }}#datasets">Datasets</a></li>
+          </ul>
+        </div>
+
+        <!-- Topics -->
+        <div class="footer-col">
+          <p class="footer-col__title">Topics</p>
+          <ul>
+            <li><a href="{{ '/projects/' | relative_url }}?filter=neuro">Neuroscience AI</a></li>
+            <li><a href="{{ '/projects/' | relative_url }}?filter=nature">Nature-Inspired</a></li>
+            <li><a href="{{ '/projects/' | relative_url }}?filter=llm">LLM Research</a></li>
+            <li><a href="{{ '/projects/' | relative_url }}?filter=snn">Spiking Networks</a></li>
+          </ul>
+        </div>
+
+        <!-- Connect -->
+        <div class="footer-col">
+          <p class="footer-col__title">Connect</p>
+          <ul>
+            <li><a href="https://github.com/{{ site.github_username }}" rel="noopener" target="_blank">GitHub</a></li>
+            <li><a href="{{ '/atom.xml' | relative_url }}">RSS Feed</a></li>
+            <li><a href="mailto:{{ site.email }}">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>&copy; {{ 'now' | date: '%Y' }} NatureCast. Open-source research shared under MIT license.</p>
+        <span class="footer-dna">ATCG·NEURON·LLM·NATURE·ATCG·NEURON·LLM·NATURE·ATCG·</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

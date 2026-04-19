@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<section class="page-hero">
+  <div class="container">
+    {% if page.label %}
+    <p class="page-hero__label">{{ page.label }}</p>
+    {% endif %}
+    <h1 class="page-hero__title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="page-hero__subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<div class="container" style="padding-top:3rem; padding-bottom:4rem;">
+  {{ content }}
+</div>

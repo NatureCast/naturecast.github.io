@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<!-- Post Hero -->
+<section class="post-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span class="breadcrumb__sep">›</span>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <span class="breadcrumb__sep">›</span>
+      <span>{{ page.title }}</span>
+    </div>
+
+    <p class="post-hero__label">
+      Research Post &nbsp;·&nbsp; {{ page.date | date: "%B %d, %Y" }}
+    </p>
+    <h1 class="post-hero__title">{{ page.title }}</h1>
+
+    <div class="post-hero__meta">
+      <span>
+        {% if page.author %}{{ page.author }}{% else %}NatureCast Research{% endif %}
+      </span>
+      {% if page.categories %}
+      <span>·</span>
+      {% for cat in page.categories limit:2 %}
+      <span class="tag">{{ cat }}</span>
+      {% endfor %}
+      {% endif %}
+      {% if page.read_time %}
+      <span>·</span>
+      <span>{{ page.read_time }} min read</span>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Post Content -->
+<article class="post-content">
+  {{ content }}
+
+  <!-- Tags -->
+  {% if page.tags.size > 0 %}
+  <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--clr-border);">
+    <p style="font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--clr-text-muted); margin-bottom:.6rem;">Tags</p>
+    <div class="project-card__tags">
+      {% for tag in page.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+</article>
+
+<!-- Related / back nav -->
+<div style="background:var(--clr-bg-alt); border-top:1px solid var(--clr-border); padding:2.5rem 0;">
+  <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+    <a href="{{ '/blog/' | relative_url }}" class="btn btn--navy btn--sm">← All Posts</a>
+
+    {% if page.previous_post %}
+    <a href="{{ page.previous_post.url | relative_url }}" class="btn btn--outline btn--sm" style="color:var(--clr-navy); border-color:var(--clr-border);">
+      Next: {{ page.previous_post.title | truncate: 45 }} →
+    </a>
+    {% endif %}
+  </div>
+</div>

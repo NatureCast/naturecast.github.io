@@ -1,0 +1,64 @@
+title: NatureCast
+tagline: Nature-Inspired Intelligence
+description: >
+  Exploring nature-inspired and neuroscience-inspired advances in artificial intelligence —
+  from spiking neural networks to state-of-the-art language models.
+baseurl: ""
+url: "https://naturecast.github.io"
+email: contact@naturecast.github.io
+github_username: NatureCast
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Plugins (GitHub Pages supported)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Feed
+feed:
+  path: atom.xml
+
+# Navigation
+nav_links:
+  - title: Home
+    url: /
+  - title: Projects
+    url: /projects/
+  - title: Blog
+    url: /blog/
+
+# Research focus areas (used on home page)
+research_areas:
+  - icon: "🧠"
+    title: Neuroscience-Inspired AI
+    description: >
+      Drawing on decades of neuroscience research to design neural architectures
+      that mirror biological learning — attention, memory consolidation, and
+      predictive coding.
+  - icon: "🌿"
+    title: Nature-Inspired Algorithms
+    description: >
+      Evolutionary computation, swarm intelligence, and biological optimization
+      strategies applied to the hardest open problems in machine learning.
+  - icon: "⚡"
+    title: State-of-the-Art LLMs
+    description: >
+      Rigorous benchmarking, interpretability studies, and efficiency research
+      on frontier large language models and multimodal systems.
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md

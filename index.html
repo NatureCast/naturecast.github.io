@@ -1,0 +1,493 @@
+---
+layout: default
+title: Home
+description: NatureCast — Open research at the intersection of biology, neuroscience, and artificial intelligence.
+---
+
+<!-- ====================================================
+     HERO
+     ==================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <canvas id="neural-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+
+  <div class="container">
+    <div class="hero__inner">
+
+      <!-- Left: Copy -->
+      <div class="hero__copy">
+        <div class="hero__badge">Research Open Source</div>
+
+        <h1 class="hero__title" id="hero-title">
+          Where <em>Nature</em><br>
+          Inspires<br>
+          Intelligence
+        </h1>
+
+        <p class="hero__desc">
+          NatureCast is an open research initiative studying how biological
+          systems — from neurons to ecosystems — can transform the design of
+          artificial intelligence. We publish code, models, benchmarks, and ideas.
+        </p>
+
+        <div class="hero__actions">
+          <a href="{{ '/projects/' | relative_url }}" class="btn btn--primary">Explore Projects</a>
+          <a href="{{ '/blog/' | relative_url }}" class="btn btn--outline">Read the Blog</a>
+        </div>
+      </div>
+
+      <!-- Right: Stats -->
+      <div class="hero__stat-grid">
+        <div class="hero__stat">
+          <div class="hero__stat-number" data-count="12" data-suffix="+">12+</div>
+          <div class="hero__stat-label">Open Projects</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-number" data-count="38" data-suffix="+">38+</div>
+          <div class="hero__stat-label">Research Posts</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-number" data-count="7" data-suffix="">7</div>
+          <div class="hero__stat-label">Research Areas</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-number" data-count="100" data-suffix="%">100%</div>
+          <div class="hero__stat-label">Open Source</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     MISSION
+     ==================================================== -->
+<section class="section--alt">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section__label">Mission</span>
+      <h2 class="section__title">Bridging biology and machine learning</h2>
+      <p class="section__subtitle">
+        Billions of years of evolution have produced extraordinarily efficient
+        information-processing systems. We study these systems — and translate
+        their principles into better AI.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+
+      {% for area in site.research_areas %}
+      <div class="focus-card" data-reveal>
+        <span class="focus-card__icon" aria-hidden="true">{{ area.icon }}</span>
+        <h3 class="focus-card__title">{{ area.title }}</h3>
+        <p class="focus-card__desc">{{ area.description }}</p>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     APPROACH — scientific figure
+     ==================================================== -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
+
+      <!-- SVG Diagram -->
+      <div data-reveal>
+        <svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg"
+             style="width:100%; border:1px solid var(--clr-border); border-radius:8px; background:#f7f9fc;">
+
+          <!-- Background grid -->
+          <defs>
+            <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+              <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#dde3ec" stroke-width=".5"/>
+            </pattern>
+          </defs>
+          <rect width="480" height="360" fill="url(#grid)"/>
+
+          <!-- Title -->
+          <text x="240" y="28" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#1a2744">
+            NatureCast Research Pipeline
+          </text>
+
+          <!-- Biology box -->
+          <rect x="20" y="55" width="120" height="70" rx="6" fill="#0f2440" stroke="#2d7a4f" stroke-width="1.5"/>
+          <text x="80" y="86" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="white">Biological</text>
+          <text x="80" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="white">Systems</text>
+          <text x="80" y="116" text-anchor="middle" font-family="monospace" font-size="9" fill="#7ecfa0">neurons · evolution</text>
+
+          <!-- Arrow 1 -->
+          <path d="M 142 90 L 178 90" stroke="#2d7a4f" stroke-width="2" marker-end="url(#arr)"/>
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="none" stroke="#2d7a4f" stroke-width="1.2"/>
+            </marker>
+          </defs>
+
+          <!-- Principles box -->
+          <rect x="180" y="55" width="120" height="70" rx="6" fill="#1a3a5c" stroke="#0d7377" stroke-width="1.5"/>
+          <text x="240" y="86" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="white">Abstract</text>
+          <text x="240" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="white">Principles</text>
+          <text x="240" y="116" text-anchor="middle" font-family="monospace" font-size="9" fill="#7ecfa0">pattern · mechanism</text>
+
+          <!-- Arrow 2 -->
+          <path d="M 302 90 L 338 90" stroke="#0d7377" stroke-width="2" marker-end="url(#arr2)"/>
+          <defs>
+            <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="none" stroke="#0d7377" stroke-width="1.2"/>
+            </marker>
+          </defs>
+
+          <!-- AI Implementation -->
+          <rect x="340" y="55" width="120" height="70" rx="6" fill="#0d3d2e" stroke="#3a9e67" stroke-width="1.5"/>
+          <text x="400" y="86" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="white">AI / ML</text>
+          <text x="400" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="white">Implementation</text>
+          <text x="400" y="116" text-anchor="middle" font-family="monospace" font-size="9" fill="#7ecfa0">model · code · eval</text>
+
+          <!-- Divider -->
+          <line x1="20" y1="155" x2="460" y2="155" stroke="#dde3ec" stroke-width="1"/>
+
+          <!-- Three columns below -->
+          <!-- SNN -->
+          <rect x="30" y="172" width="120" height="160" rx="6" fill="white" stroke="#dde3ec" stroke-width="1"/>
+          <rect x="30" y="172" width="120" height="6" rx="3" fill="#2d7a4f"/>
+          <text x="90" y="198" text-anchor="middle" font-family="Georgia,serif" font-size="10.5" font-weight="700" fill="#1a2744">Spiking NNs</text>
+          <text x="90" y="214" text-anchor="middle" font-family="monospace" font-size="8" fill="#536878">Leaky I&amp;F · STDP</text>
+          <!-- Mini diagram: spikes -->
+          <path d="M40,250 L55,250 L55,228 L60,228 L60,250 L80,250 L80,235 L85,235 L85,250 L110,250 L110,240 L115,240 L115,250 L140,250" stroke="#2d7a4f" stroke-width="1.5" fill="none"/>
+          <text x="90" y="296" text-anchor="middle" font-family="monospace" font-size="8" fill="#536878">low-power · temporal</text>
+          <text x="90" y="308" text-anchor="middle" font-family="monospace" font-size="8" fill="#536878">coding · plasticity</text>
+          <rect x="42" y="318" width="96" height="5" rx="2" fill="#edf7f1"/>
+          <rect x="42" y="318" width="72" height="5" rx="2" fill="#2d7a4f"/>
+
+          <!-- Evo Alg -->
+          <rect x="180" y="172" width="120" height="160" rx="6" fill="white" stroke="#dde3ec" stroke-width="1"/>
+          <rect x="180" y="172" width="120" height="6" rx="3" fill="#0d7377"/>
+          <text x="240" y="198" text-anchor="middle" font-family="Georgia,serif" font-size="10.5" font-weight="700" fill="#1a2744">Evolutionary</text>
+          <text x="240" y="214" text-anchor="middle" font-family="monospace" font-size="8" fill="#536878">GA · CMA-ES · NAS</text>
+          <!-- Mini diagram: fitness curve -->
+          <path d="M190,270 Q210,265 220,255 Q235,242 250,236 Q265,230 290,225" stroke="#0d7377" stroke-width="1.5" fill="none"/>
+          <circle cx="190" cy="270" r="3" fill="#0d7377"/>
+          <circle cx="240" cy="243" r="3" fill="#0d7377"/>
+          <circle cx="290" cy="225" r="3" fill="#0d7377"/>
+          <text x="240" y="296" text-anchor="middle" font-family="monospace" font-size="8" fill="#536878">fitness landscape</text>
+          <text x="240" y="308" text-anchor="middle" font-family="monospace" font-size="8" fill="#536878">selection · mutation</text>
+          <rect x="192" y="318" width="96" height="5" rx="2" fill="#e6f4f4"/>
+          <rect x="192" y="318" width="60" height="5" rx="2" fill="#0d7377"/>
+
+          <!-- LLM Bench -->
+          <rect x="330" y="172" width="120" height="160" rx="6" fill="white" stroke="#dde3ec" stroke-width="1"/>
+          <rect x="330" y="172" width="120" height="6" rx="3" fill="#1a3a5c"/>
+          <text x="390" y="198" text-anchor="middle" font-family="Georgia,serif" font-size="10.5" font-weight="700" fill="#1a2744">LLM Eval</text>
+          <text x="390" y="214" text-anchor="middle" font-family="monospace" font-size="8" fill="#536878">bench · interpret</text>
+          <!-- Bar chart -->
+          <rect x="344" y="260" width="14" height="30" rx="2" fill="#1a3a5c" opacity=".7"/>
+          <rect x="362" y="248" width="14" height="42" rx="2" fill="#1a3a5c" opacity=".8"/>
+          <rect x="380" y="238" width="14" height="52" rx="2" fill="#1a3a5c"/>
+          <rect x="398" y="243" width="14" height="47" rx="2" fill="#1a56a0" opacity=".8"/>
+          <rect x="416" y="250" width="14" height="40" rx="2" fill="#1a56a0" opacity=".6"/>
+          <text x="390" y="300" text-anchor="middle" font-family="monospace" font-size="8" fill="#536878">model comparison</text>
+          <text x="390" y="312" text-anchor="middle" font-family="monospace" font-size="8" fill="#536878">MMLU · HumanEval</text>
+          <rect x="342" y="318" width="96" height="5" rx="2" fill="#e8f0fe"/>
+          <rect x="342" y="318" width="82" height="5" rx="2" fill="#1a3a5c"/>
+
+        </svg>
+        <p style="font-size:.82rem; color:var(--clr-text-muted); text-align:center; margin-top:.6rem; font-style:italic;">
+          Figure 1. NatureCast research pipeline — from biology to AI implementation.
+        </p>
+      </div>
+
+      <!-- Copy -->
+      <div data-reveal>
+        <span class="section__label">Approach</span>
+        <h2 class="section__title">A systematic pipeline from biology to code</h2>
+        <p style="color:var(--clr-text-muted); line-height:1.75; margin-bottom:1.25rem;">
+          We study biological intelligence at multiple scales — from single neurons
+          to whole ecosystems — and systematically extract computational principles
+          that can improve artificial systems.
+        </p>
+        <p style="color:var(--clr-text-muted); line-height:1.75; margin-bottom:1.75rem;">
+          Every project ships working code, reproducible benchmarks, and
+          clear documentation so others can build on our work.
+        </p>
+
+        <div style="display:flex; flex-direction:column; gap:.75rem;">
+          <div style="display:flex; align-items:flex-start; gap:.75rem;">
+            <span style="color:var(--clr-green); font-weight:700; font-size:1.1rem; line-height:1.4;">01.</span>
+            <div>
+              <strong style="color:var(--clr-navy);">Observe</strong>
+              <p style="font-size:.93rem; color:var(--clr-text-muted); margin:0;">Literature review and experimental analysis of biological mechanisms.</p>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:.75rem;">
+            <span style="color:var(--clr-green); font-weight:700; font-size:1.1rem; line-height:1.4;">02.</span>
+            <div>
+              <strong style="color:var(--clr-navy);">Abstract</strong>
+              <p style="font-size:.93rem; color:var(--clr-text-muted); margin:0;">Distill computational principles that generalise beyond biology.</p>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:.75rem;">
+            <span style="color:var(--clr-green); font-weight:700; font-size:1.1rem; line-height:1.4;">03.</span>
+            <div>
+              <strong style="color:var(--clr-navy);">Implement & Evaluate</strong>
+              <p style="font-size:.93rem; color:var(--clr-text-muted); margin:0;">Build, benchmark, and openly publish models and code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     FEATURED PROJECTS
+     ==================================================== -->
+<section class="section--alt">
+  <div class="container">
+    <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <span class="section__label">Featured Work</span>
+        <h2 class="section__title" style="margin-bottom:0;">Active Projects</h2>
+      </div>
+      <a href="{{ '/projects/' | relative_url }}" class="btn btn--navy btn--sm">View All Projects →</a>
+    </div>
+
+    <div class="grid grid--3">
+
+      <!-- Project 1 -->
+      <div class="card" data-reveal>
+        <div class="project-card__diagram" aria-hidden="true">
+          <!-- Spiking network mini-viz -->
+          <svg viewBox="0 0 200 110" style="width:100%;height:100%;">
+            <defs>
+              <radialGradient id="gn1" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#3a9e67" stop-opacity=".9"/>
+                <stop offset="100%" stop-color="#0f2440" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="200" height="110" fill="#0f1f36"/>
+            <!-- Input layer -->
+            <circle cx="30" cy="25" r="6" fill="#2d7a4f" opacity=".9"/>
+            <circle cx="30" cy="55" r="6" fill="#2d7a4f" opacity=".9"/>
+            <circle cx="30" cy="85" r="6" fill="#2d7a4f" opacity=".9"/>
+            <!-- Hidden layer 1 -->
+            <circle cx="80" cy="35" r="6" fill="#1a3a5c" stroke="#0d7377" stroke-width="1.2"/>
+            <circle cx="80" cy="55" r="6" fill="#1a3a5c" stroke="#0d7377" stroke-width="1.2"/>
+            <circle cx="80" cy="75" r="6" fill="#1a3a5c" stroke="#0d7377" stroke-width="1.2"/>
+            <!-- Hidden layer 2 -->
+            <circle cx="130" cy="40" r="6" fill="#1a3a5c" stroke="#7ecfa0" stroke-width="1.5"/>
+            <circle cx="130" cy="70" r="6" fill="#1a3a5c" stroke="#7ecfa0" stroke-width="1.5"/>
+            <!-- Output -->
+            <circle cx="175" cy="55" r="8" fill="#3a9e67"/>
+            <!-- Connections -->
+            <g opacity=".35" stroke="#2d7a4f" stroke-width=".7">
+              <line x1="36" y1="25" x2="74" y2="35"/><line x1="36" y1="25" x2="74" y2="55"/><line x1="36" y1="25" x2="74" y2="75"/>
+              <line x1="36" y1="55" x2="74" y2="35"/><line x1="36" y1="55" x2="74" y2="55"/><line x1="36" y1="55" x2="74" y2="75"/>
+              <line x1="36" y1="85" x2="74" y2="35"/><line x1="36" y1="85" x2="74" y2="55"/><line x1="36" y1="85" x2="74" y2="75"/>
+              <line x1="86" y1="35" x2="124" y2="40"/><line x1="86" y1="35" x2="124" y2="70"/>
+              <line x1="86" y1="55" x2="124" y2="40"/><line x1="86" y1="55" x2="124" y2="70"/>
+              <line x1="86" y1="75" x2="124" y2="40"/><line x1="86" y1="75" x2="124" y2="70"/>
+              <line x1="136" y1="40" x2="167" y2="55"/><line x1="136" y1="70" x2="167" y2="55"/>
+            </g>
+            <!-- Spike animation path -->
+            <path d="M5,55 L18,55 L20,45 L22,65 L24,55 L36,55" stroke="#7ecfa0" stroke-width="1.5" fill="none" opacity=".8"/>
+            <text x="100" y="104" text-anchor="middle" font-family="monospace" font-size="8" fill="#7ecfa0" opacity=".7">Spiking Neural Network</text>
+          </svg>
+        </div>
+        <div class="card__header">
+          <span class="card__badge card__badge--green">Neuroscience AI</span>
+          <h3 class="card__title">NeuroSynth-SNN</h3>
+        </div>
+        <div class="card__body">
+          <p class="card__excerpt">
+            Biologically-inspired spiking neural network framework implementing
+            leaky integrate-and-fire neurons with STDP learning rules.
+            Achieves competitive accuracy at 10× lower energy cost on temporal tasks.
+          </p>
+          <div class="project-card__tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">STDP</span>
+            <span class="tag">Neuromorphic</span>
+          </div>
+          <div class="card__footer">
+            <a href="{{ '/projects/' | relative_url }}#neurosynth" class="card__link">View Project →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card" data-reveal>
+        <div class="project-card__diagram" aria-hidden="true">
+          <svg viewBox="0 0 200 110" style="width:100%;height:100%;">
+            <rect width="200" height="110" fill="#0f1f36"/>
+            <!-- Fitness curve -->
+            <path d="M15,90 Q30,85 45,75 Q65,62 85,52 Q105,40 125,35 Q155,28 185,22" stroke="#3a9e67" stroke-width="2" fill="none"/>
+            <!-- Points on curve -->
+            <circle cx="15" cy="90" r="3" fill="#7ecfa0"/>
+            <circle cx="85" cy="52" r="3" fill="#7ecfa0"/>
+            <circle cx="185" cy="22" r="3" fill="#7ecfa0"/>
+            <!-- Axes -->
+            <line x1="10" y1="95" x2="195" y2="95" stroke="#2d7a4f" stroke-width=".8" opacity=".5"/>
+            <line x1="10" y1="95" x2="10" y2="15" stroke="#2d7a4f" stroke-width=".8" opacity=".5"/>
+            <!-- Generation labels -->
+            <text x="15" y="104" font-family="monospace" font-size="7" fill="#7ecfa0" opacity=".6">Gen 1</text>
+            <text x="155" y="104" font-family="monospace" font-size="7" fill="#7ecfa0" opacity=".6">Gen 50</text>
+            <text x="8" y="20" font-family="monospace" font-size="7" fill="#7ecfa0" opacity=".6" text-anchor="middle">fit</text>
+            <!-- Population scatter -->
+            <circle cx="40" cy="78" r="2" fill="#0d7377" opacity=".7"/>
+            <circle cx="55" cy="72" r="2" fill="#0d7377" opacity=".7"/>
+            <circle cx="100" cy="45" r="2" fill="#0d7377" opacity=".7"/>
+            <circle cx="115" cy="38" r="2" fill="#0d7377" opacity=".7"/>
+            <circle cx="160" cy="27" r="2" fill="#0d7377" opacity=".7"/>
+            <text x="100" y="108" text-anchor="middle" font-family="monospace" font-size="8" fill="#7ecfa0" opacity=".7">Evolutionary Optimisation</text>
+          </svg>
+        </div>
+        <div class="card__header">
+          <span class="card__badge card__badge--teal">Nature-Inspired</span>
+          <h3 class="card__title">EvoSearch-NAS</h3>
+        </div>
+        <div class="card__body">
+          <p class="card__excerpt">
+            Evolutionary neural architecture search using CMA-ES and genetic
+            programming. Discovers efficient transformer variants inspired by
+            natural selection and co-evolution dynamics.
+          </p>
+          <div class="project-card__tags">
+            <span class="tag">Python</span>
+            <span class="tag">CMA-ES</span>
+            <span class="tag">NAS</span>
+            <span class="tag">JAX</span>
+          </div>
+          <div class="card__footer">
+            <a href="{{ '/projects/' | relative_url }}#evosearch" class="card__link">View Project →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card" data-reveal>
+        <div class="project-card__diagram" aria-hidden="true">
+          <svg viewBox="0 0 200 110" style="width:100%;height:100%;">
+            <rect width="200" height="110" fill="#0f1f36"/>
+            <!-- Radar / benchmark chart -->
+            <polygon points="100,18 158,50 140,96 60,96 42,50" stroke="#1a3a5c" stroke-width="1" fill="#1a3a5c" opacity=".4"/>
+            <!-- Model A -->
+            <polygon points="100,32 145,56 132,88 68,88 55,56" stroke="#2d7a4f" stroke-width="1.5" fill="#2d7a4f" opacity=".25"/>
+            <!-- Model B -->
+            <polygon points="100,40 135,60 125,82 75,82 65,60" stroke="#0d7377" stroke-width="1.5" fill="#0d7377" opacity=".2"/>
+            <!-- Axis lines -->
+            <line x1="100" y1="55" x2="100" y2="18" stroke="#536878" stroke-width=".6" opacity=".5"/>
+            <line x1="100" y1="55" x2="158" y2="50" stroke="#536878" stroke-width=".6" opacity=".5"/>
+            <line x1="100" y1="55" x2="140" y2="96" stroke="#536878" stroke-width=".6" opacity=".5"/>
+            <line x1="100" y1="55" x2="60" y2="96" stroke="#536878" stroke-width=".6" opacity=".5"/>
+            <line x1="100" y1="55" x2="42" y2="50" stroke="#536878" stroke-width=".6" opacity=".5"/>
+            <!-- Labels -->
+            <text x="100" y="14" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">MMLU</text>
+            <text x="166" y="52" font-family="monospace" font-size="7" fill="#7ecfa0">HEval</text>
+            <text x="144" y="100" font-family="monospace" font-size="7" fill="#7ecfa0">GSM8K</text>
+            <text x="36" y="100" font-family="monospace" font-size="7" fill="#7ecfa0">ARC</text>
+            <text x="16" y="52" font-family="monospace" font-size="7" fill="#7ecfa0">BIG-B</text>
+            <text x="100" y="108" text-anchor="middle" font-family="monospace" font-size="8" fill="#7ecfa0" opacity=".7">LLM Benchmark Suite</text>
+          </svg>
+        </div>
+        <div class="card__header">
+          <span class="card__badge card__badge--blue">LLM Research</span>
+          <h3 class="card__title">OmniEval-LLM</h3>
+        </div>
+        <div class="card__body">
+          <p class="card__excerpt">
+            Comprehensive evaluation framework for large language models across
+            reasoning, coding, science, and instruction-following benchmarks.
+            Reproducible, hardware-aware comparisons.
+          </p>
+          <div class="project-card__tags">
+            <span class="tag">Python</span>
+            <span class="tag">vLLM</span>
+            <span class="tag">MMLU</span>
+            <span class="tag">HumanEval</span>
+          </div>
+          <div class="card__footer">
+            <a href="{{ '/projects/' | relative_url }}#omnieval" class="card__link">View Project →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     RECENT BLOG POSTS
+     ==================================================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <span class="section__label">Latest Thinking</span>
+        <h2 class="section__title" style="margin-bottom:0;">From the Blog</h2>
+      </div>
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn--navy btn--sm">All Posts →</a>
+    </div>
+
+    <div class="grid grid--3">
+      {% for post in site.posts limit:3 %}
+      <div class="card" data-reveal>
+        <div class="card__header">
+          <span class="card__badge card__badge--{% if post.category == 'llm' %}blue{% elsif post.category == 'neuro' %}green{% else %}teal{% endif %}">
+            {{ post.category | default: "Research" | capitalize }}
+          </span>
+          <h3 class="card__title">
+            <a href="{{ post.url | relative_url }}" style="color:inherit; text-decoration:none; transition:color .2s;">{{ post.title }}</a>
+          </h3>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span class="card__meta-item">
+              📅 {{ post.date | date: "%b %d, %Y" }}
+            </span>
+            {% if post.read_time %}
+            <span class="card__meta-item">⏱ {{ post.read_time }} min</span>
+            {% endif %}
+          </div>
+          <p class="card__excerpt">
+            {{ post.excerpt | strip_html | truncate: 155 }}
+          </p>
+          <div class="card__footer">
+            <a href="{{ post.url | relative_url }}" class="card__link">Read Post →</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ====================================================
+     CTA BANNER
+     ==================================================== -->
+<section class="cta-banner">
+  <div class="container">
+    <h2 class="cta-banner__title">Join the research conversation</h2>
+    <p class="cta-banner__desc">
+      All our code, datasets, and findings are open-source.
+      Contribute on GitHub, follow the blog, or reach out to collaborate.
+    </p>
+    <div class="cta-banner__actions">
+      <a href="https://github.com/{{ site.github_username }}" class="btn btn--primary" rel="noopener" target="_blank">
+        View on GitHub
+      </a>
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn--outline">Read the Blog</a>
+    </div>
+  </div>
+</section>

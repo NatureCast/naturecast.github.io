@@ -1,0 +1,489 @@
+---
+layout: default
+title: Projects
+description: Open-source projects at the intersection of neuroscience, nature-inspired computation, and large language model research.
+---
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <p class="page-hero__label">Open Research</p>
+    <h1 class="page-hero__title">Projects</h1>
+    <p class="page-hero__subtitle">
+      Reproducible experiments, working code, and documented methods —
+      from spiking neural networks to frontier LLM benchmarks.
+    </p>
+  </div>
+</section>
+
+<div class="section">
+<div class="container">
+
+  <!-- Filter tabs -->
+  <div class="filter-tabs" role="tablist" aria-label="Filter projects by category">
+    <button class="filter-tab active" data-filter="all" role="tab">All Projects</button>
+    <button class="filter-tab" data-filter="neuro" role="tab">Neuroscience AI</button>
+    <button class="filter-tab" data-filter="nature" role="tab">Nature-Inspired</button>
+    <button class="filter-tab" data-filter="llm" role="tab">LLM Research</button>
+    <button class="filter-tab" data-filter="interpretability" role="tab">Interpretability</button>
+  </div>
+
+  <!-- ==================== PROJECT CARDS ==================== -->
+  <div class="grid grid--3">
+
+    <!-- 1. NeuroSynth-SNN -->
+    <div class="card" id="neurosynth" data-category="neuro" data-reveal>
+      <div class="project-card__diagram" aria-hidden="true">
+        <svg viewBox="0 0 200 130" style="width:100%;height:100%;">
+          <rect width="200" height="130" fill="#0a1628"/>
+          <!-- Neuron membrane potential plot -->
+          <text x="100" y="16" text-anchor="middle" font-family="monospace" font-size="8" fill="#7ecfa0" opacity=".7">Membrane Potential (mV)</text>
+          <!-- Resting -->
+          <path d="M10,85 L45,85" stroke="#3a9e67" stroke-width="1.5" fill="none"/>
+          <!-- Rising phase -->
+          <path d="M45,85 L52,30" stroke="#3a9e67" stroke-width="1.5" fill="none"/>
+          <!-- Falling phase -->
+          <path d="M52,30 L60,100" stroke="#3a9e67" stroke-width="1.5" fill="none"/>
+          <!-- Hyperpolarization -->
+          <path d="M60,100 L75,100" stroke="#3a9e67" stroke-width="1.5" fill="none"/>
+          <!-- Return -->
+          <path d="M75,100 L90,85" stroke="#3a9e67" stroke-width="1.5" fill="none"/>
+          <!-- Second spike -->
+          <path d="M90,85 L120,85 L127,30 L135,100 L150,100 L165,85 L190,85" stroke="#3a9e67" stroke-width="1.5" fill="none"/>
+          <!-- Threshold line -->
+          <line x1="10" y1="55" x2="190" y2="55" stroke="#0d7377" stroke-width=".8" stroke-dasharray="4,3" opacity=".6"/>
+          <text x="12" y="52" font-family="monospace" font-size="7" fill="#0d7377" opacity=".8">threshold</text>
+          <!-- Rest line -->
+          <line x1="10" y1="85" x2="190" y2="85" stroke="#1a3a5c" stroke-width=".7" opacity=".5"/>
+          <!-- Axis -->
+          <line x1="10" y1="105" x2="190" y2="105" stroke="#536878" stroke-width=".8" opacity=".4"/>
+          <text x="100" y="120" text-anchor="middle" font-family="monospace" font-size="7" fill="#536878" opacity=".7">Time (ms)</text>
+        </svg>
+      </div>
+      <div class="card__header">
+        <span class="card__badge card__badge--green">Neuroscience AI</span>
+        <h3 class="card__title">NeuroSynth-SNN</h3>
+      </div>
+      <div class="card__body">
+        <div class="card__meta">
+          <span class="card__meta-item">🔬 Active</span>
+          <span class="card__meta-item">⭐ Research-grade</span>
+        </div>
+        <p class="card__excerpt">
+          A comprehensive spiking neural network (SNN) framework built on
+          biologically realistic leaky integrate-and-fire neurons.
+          Features spike-timing-dependent plasticity (STDP), surrogate gradient
+          training, and benchmarks against conventional deep learning on temporal
+          pattern recognition tasks.
+        </p>
+        <div class="project-card__tags">
+          <span class="tag">Python</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">SpikingJelly</span>
+          <span class="tag">STDP</span>
+          <span class="tag">Neuromorphic</span>
+        </div>
+
+        <!-- Mini result table -->
+        <table class="data-table" style="margin-top:1rem; font-size:.78rem;">
+          <thead>
+            <tr><th>Model</th><th>Acc. (%)</th><th>Energy</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>SNN (ours)</td><td>93.4</td><td>0.8×</td></tr>
+            <tr><td>ANN Baseline</td><td>94.1</td><td>10×</td></tr>
+          </tbody>
+        </table>
+
+        <div class="card__footer">
+          <a href="https://github.com/{{ site.github_username }}" class="card__link" rel="noopener" target="_blank">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. EvoSearch-NAS -->
+    <div class="card" id="evosearch" data-category="nature" data-reveal>
+      <div class="project-card__diagram" aria-hidden="true">
+        <svg viewBox="0 0 200 130" style="width:100%;height:100%;">
+          <rect width="200" height="130" fill="#0a1628"/>
+          <!-- Fitness landscape 3D-ish -->
+          <path d="M10,110 Q30,60 55,80 Q75,100 100,45 Q120,10 140,55 Q160,90 190,70" stroke="#3a9e67" stroke-width="2" fill="none"/>
+          <!-- Fill under curve -->
+          <path d="M10,110 Q30,60 55,80 Q75,100 100,45 Q120,10 140,55 Q160,90 190,70 L190,115 L10,115 Z" fill="#2d7a4f" opacity=".15"/>
+          <!-- Population dots -->
+          <circle cx="15" cy="108" r="3.5" fill="#7ecfa0" opacity=".9"/>
+          <circle cx="30" cy="95" r="3" fill="#7ecfa0" opacity=".7"/>
+          <circle cx="50" cy="82" r="3" fill="#7ecfa0" opacity=".7"/>
+          <circle cx="70" cy="88" r="3" fill="#7ecfa0" opacity=".7"/>
+          <circle cx="100" cy="45" r="4.5" fill="#ffcc00" opacity=".9"/>
+          <circle cx="120" cy="25" r="3" fill="#7ecfa0" opacity=".5"/>
+          <circle cx="145" cy="50" r="3" fill="#7ecfa0" opacity=".6"/>
+          <circle cx="165" cy="72" r="3" fill="#7ecfa0" opacity=".5"/>
+          <!-- Best marker -->
+          <line x1="100" y1="45" x2="100" y2="18" stroke="#ffcc00" stroke-width=".8" stroke-dasharray="3,2" opacity=".7"/>
+          <text x="100" y="14" text-anchor="middle" font-family="monospace" font-size="7" fill="#ffcc00">Global optimum</text>
+          <!-- Axes -->
+          <line x1="8" y1="115" x2="193" y2="115" stroke="#536878" stroke-width=".8" opacity=".5"/>
+          <text x="100" y="127" text-anchor="middle" font-family="monospace" font-size="7" fill="#536878" opacity=".7">Architecture Parameter Space</text>
+        </svg>
+      </div>
+      <div class="card__header">
+        <span class="card__badge card__badge--teal">Nature-Inspired</span>
+        <h3 class="card__title">EvoSearch-NAS</h3>
+      </div>
+      <div class="card__body">
+        <div class="card__meta">
+          <span class="card__meta-item">🔬 Active</span>
+          <span class="card__meta-item">🧬 Evolutionary</span>
+        </div>
+        <p class="card__excerpt">
+          Neural architecture search powered by CMA-ES (Covariance Matrix Adaptation
+          Evolution Strategy) and multi-objective genetic programming.
+          Discovers efficient transformer and CNN variants without gradient-based search,
+          inspired by natural selection principles.
+        </p>
+        <div class="project-card__tags">
+          <span class="tag">Python</span>
+          <span class="tag">CMA-ES</span>
+          <span class="tag">DEAP</span>
+          <span class="tag">JAX</span>
+          <span class="tag">NAS</span>
+        </div>
+
+        <table class="data-table" style="margin-top:1rem; font-size:.78rem;">
+          <thead>
+            <tr><th>Search Method</th><th>GPU-days</th><th>Top-1</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>EvoSearch (ours)</td><td>1.2</td><td>78.9%</td></tr>
+            <tr><td>DARTS</td><td>4.0</td><td>77.6%</td></tr>
+          </tbody>
+        </table>
+
+        <div class="card__footer">
+          <a href="https://github.com/{{ site.github_username }}" class="card__link" rel="noopener" target="_blank">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. OmniEval-LLM -->
+    <div class="card" id="omnieval" data-category="llm" data-reveal>
+      <div class="project-card__diagram" aria-hidden="true">
+        <svg viewBox="0 0 200 130" style="width:100%;height:100%;">
+          <rect width="200" height="130" fill="#0a1628"/>
+          <!-- Bar chart -->
+          <text x="100" y="16" text-anchor="middle" font-family="monospace" font-size="8" fill="#7ecfa0" opacity=".7">Benchmark Scores (%)</text>
+          <!-- Grid lines -->
+          <line x1="30" y1="25" x2="190" y2="25" stroke="#1a2744" stroke-width=".6"/>
+          <line x1="30" y1="50" x2="190" y2="50" stroke="#1a2744" stroke-width=".6"/>
+          <line x1="30" y1="75" x2="190" y2="75" stroke="#1a2744" stroke-width=".6"/>
+          <!-- Bars: GPT-4, Claude, Gemini, Llama, Mistral -->
+          <rect x="35" y="30" width="18" height="70" rx="2" fill="#2d7a4f" opacity=".9"/>
+          <rect x="60" y="35" width="18" height="65" rx="2" fill="#0d7377" opacity=".9"/>
+          <rect x="85" y="40" width="18" height="60" rx="2" fill="#1a3a5c" opacity=".9"/>
+          <rect x="110" y="48" width="18" height="52" rx="2" fill="#1a56a0" opacity=".9"/>
+          <rect x="135" y="52" width="18" height="48" rx="2" fill="#5b3f8a" opacity=".9"/>
+          <rect x="160" y="56" width="18" height="44" rx="2" fill="#8b4513" opacity=".9"/>
+          <!-- Labels -->
+          <text x="44" y="105" text-anchor="middle" font-family="monospace" font-size="6" fill="#7ecfa0">GPT-4</text>
+          <text x="69" y="105" text-anchor="middle" font-family="monospace" font-size="6" fill="#7ecfa0">Claude</text>
+          <text x="94" y="105" text-anchor="middle" font-family="monospace" font-size="6" fill="#7ecfa0">Gemini</text>
+          <text x="119" y="105" text-anchor="middle" font-family="monospace" font-size="6" fill="#7ecfa0">Llama</text>
+          <text x="144" y="105" text-anchor="middle" font-family="monospace" font-size="6" fill="#7ecfa0">Mistral</text>
+          <text x="169" y="105" text-anchor="middle" font-family="monospace" font-size="6" fill="#7ecfa0">Falcon</text>
+          <!-- Y-axis -->
+          <line x1="30" y1="20" x2="30" y2="100" stroke="#536878" stroke-width=".8" opacity=".5"/>
+          <text x="27" y="28" text-anchor="end" font-family="monospace" font-size="6" fill="#536878">90</text>
+          <text x="27" y="53" text-anchor="end" font-family="monospace" font-size="6" fill="#536878">70</text>
+          <text x="27" y="78" text-anchor="end" font-family="monospace" font-size="6" fill="#536878">50</text>
+          <text x="100" y="120" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0" opacity=".7">MMLU · HumanEval · GSM8K</text>
+        </svg>
+      </div>
+      <div class="card__header">
+        <span class="card__badge card__badge--blue">LLM Research</span>
+        <h3 class="card__title">OmniEval-LLM</h3>
+      </div>
+      <div class="card__body">
+        <div class="card__meta">
+          <span class="card__meta-item">🔬 Active</span>
+          <span class="card__meta-item">📊 Benchmarks</span>
+        </div>
+        <p class="card__excerpt">
+          A hardware-aware, reproducible evaluation harness for large language models.
+          Covers 15+ benchmarks (MMLU, HumanEval, GSM8K, ARC, BIG-Bench Hard),
+          with automated reporting, calibration analysis, and efficiency metrics.
+        </p>
+        <div class="project-card__tags">
+          <span class="tag">Python</span>
+          <span class="tag">vLLM</span>
+          <span class="tag">lm-eval</span>
+          <span class="tag">MMLU</span>
+          <span class="tag">HumanEval</span>
+        </div>
+        <div class="card__footer">
+          <a href="https://github.com/{{ site.github_username }}" class="card__link" rel="noopener" target="_blank">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. HippocampalNet -->
+    <div class="card" data-category="neuro" data-reveal>
+      <div class="project-card__diagram" aria-hidden="true">
+        <svg viewBox="0 0 200 130" style="width:100%;height:100%;">
+          <rect width="200" height="130" fill="#0a1628"/>
+          <!-- Hippocampal loop diagram -->
+          <!-- Entorhinal cortex -->
+          <rect x="15" y="20" width="55" height="30" rx="4" fill="#1a3a5c" stroke="#0d7377" stroke-width="1"/>
+          <text x="42" y="38" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">Entorhinal</text>
+          <text x="42" y="47" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">Cortex</text>
+          <!-- DG -->
+          <rect x="130" y="20" width="55" height="30" rx="4" fill="#1a3a5c" stroke="#2d7a4f" stroke-width="1"/>
+          <text x="157" y="38" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">Dentate</text>
+          <text x="157" y="47" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">Gyrus</text>
+          <!-- CA3 -->
+          <rect x="130" y="75" width="55" height="30" rx="4" fill="#1a3a5c" stroke="#3a9e67" stroke-width="1"/>
+          <text x="157" y="94" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">CA3</text>
+          <!-- CA1 -->
+          <rect x="15" y="75" width="55" height="30" rx="4" fill="#1a3a5c" stroke="#7ecfa0" stroke-width="1.5"/>
+          <text x="42" y="94" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">CA1</text>
+          <!-- Arrows -->
+          <defs>
+            <marker id="a1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L5,3 L0,6" fill="none" stroke="#0d7377" stroke-width="1.2"/>
+            </marker>
+            <marker id="a2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L5,3 L0,6" fill="none" stroke="#2d7a4f" stroke-width="1.2"/>
+            </marker>
+          </defs>
+          <path d="M70,35 L128,35" stroke="#0d7377" stroke-width="1.2" marker-end="url(#a1)"/>
+          <path d="M157,50 L157,73" stroke="#2d7a4f" stroke-width="1.2" marker-end="url(#a2)"/>
+          <path d="M128,90 L72,90" stroke="#2d7a4f" stroke-width="1.2" marker-end="url(#a2)"/>
+          <path d="M42,73 L42,52" stroke="#0d7377" stroke-width="1.2" marker-end="url(#a1)"/>
+          <!-- Perforant path -->
+          <path d="M42,50 Q42,62 130,75" stroke="#7ecfa0" stroke-width=".8" stroke-dasharray="3,2" opacity=".6"/>
+          <text x="100" y="122" text-anchor="middle" font-family="monospace" font-size="7" fill="#536878">Hippocampal Memory Circuit</text>
+        </svg>
+      </div>
+      <div class="card__header">
+        <span class="card__badge card__badge--green">Neuroscience AI</span>
+        <h3 class="card__title">HippocampalNet</h3>
+      </div>
+      <div class="card__body">
+        <div class="card__meta">
+          <span class="card__meta-item">🔬 Research</span>
+          <span class="card__meta-item">🧠 Memory</span>
+        </div>
+        <p class="card__excerpt">
+          Neural memory architecture inspired by the hippocampal-entorhinal circuit.
+          Implements pattern completion, pattern separation, and episodic memory replay
+          to achieve continual learning without catastrophic forgetting.
+        </p>
+        <div class="project-card__tags">
+          <span class="tag">Python</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Continual Learning</span>
+          <span class="tag">Hopfield</span>
+        </div>
+        <div class="card__footer">
+          <a href="https://github.com/{{ site.github_username }}" class="card__link" rel="noopener" target="_blank">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. SwarmOpt -->
+    <div class="card" data-category="nature" data-reveal>
+      <div class="project-card__diagram" aria-hidden="true">
+        <svg viewBox="0 0 200 130" style="width:100%;height:100%;">
+          <rect width="200" height="130" fill="#0a1628"/>
+          <!-- Swarm particles moving toward attractor -->
+          <circle cx="130" cy="65" r="12" fill="#0d3d2e" stroke="#3a9e67" stroke-width="1.5" opacity=".7"/>
+          <text x="130" y="69" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">★</text>
+          <!-- Particles with velocity lines -->
+          <circle cx="25" cy="30" r="3" fill="#7ecfa0" opacity=".8"/>
+          <line x1="25" y1="30" x2="42" y2="38" stroke="#2d7a4f" stroke-width=".8" opacity=".6"/>
+          <circle cx="50" cy="20" r="3" fill="#7ecfa0" opacity=".7"/>
+          <line x1="50" y1="20" x2="65" y2="32" stroke="#2d7a4f" stroke-width=".8" opacity=".6"/>
+          <circle cx="20" cy="60" r="3" fill="#7ecfa0" opacity=".8"/>
+          <line x1="20" y1="60" x2="40" y2="62" stroke="#2d7a4f" stroke-width=".8" opacity=".6"/>
+          <circle cx="45" cy="90" r="3" fill="#7ecfa0" opacity=".7"/>
+          <line x1="45" y1="90" x2="62" y2="80" stroke="#2d7a4f" stroke-width=".8" opacity=".6"/>
+          <circle cx="25" cy="110" r="3" fill="#7ecfa0" opacity=".7"/>
+          <line x1="25" y1="110" x2="45" y2="98" stroke="#2d7a4f" stroke-width=".8" opacity=".6"/>
+          <circle cx="75" cy="45" r="3.5" fill="#0d7377" opacity=".9"/>
+          <line x1="75" y1="45" x2="92" y2="52" stroke="#0d7377" stroke-width=".9" opacity=".7"/>
+          <circle cx="80" cy="85" r="3.5" fill="#0d7377" opacity=".9"/>
+          <line x1="80" y1="85" x2="95" y2="76" stroke="#0d7377" stroke-width=".9" opacity=".7"/>
+          <circle cx="100" cy="40" r="3" fill="#3a9e67" opacity=".9"/>
+          <line x1="100" y1="40" x2="113" y2="50" stroke="#3a9e67" stroke-width="1" opacity=".8"/>
+          <circle cx="105" cy="90" r="3" fill="#3a9e67" opacity=".9"/>
+          <line x1="105" y1="90" x2="116" y2="78" stroke="#3a9e67" stroke-width="1" opacity=".8"/>
+          <!-- Convergence lines -->
+          <path d="M25,30 Q70,45 118,60" stroke="#7ecfa0" stroke-width=".5" stroke-dasharray="2,3" opacity=".3"/>
+          <path d="M50,20 Q80,40 118,60" stroke="#7ecfa0" stroke-width=".5" stroke-dasharray="2,3" opacity=".3"/>
+          <text x="100" y="122" text-anchor="middle" font-family="monospace" font-size="7" fill="#536878">Particle Swarm Optimisation</text>
+        </svg>
+      </div>
+      <div class="card__header">
+        <span class="card__badge card__badge--teal">Nature-Inspired</span>
+        <h3 class="card__title">SwarmOpt-ML</h3>
+      </div>
+      <div class="card__body">
+        <div class="card__meta">
+          <span class="card__meta-item">🔬 Active</span>
+          <span class="card__meta-item">🐝 Swarm</span>
+        </div>
+        <p class="card__excerpt">
+          Swarm intelligence library for hyperparameter optimisation and
+          neural network training. Implements PSO, ACO, and bee-algorithm
+          variants, demonstrating competitive performance with gradient-free training
+          on non-differentiable loss landscapes.
+        </p>
+        <div class="project-card__tags">
+          <span class="tag">Python</span>
+          <span class="tag">PSO</span>
+          <span class="tag">ACO</span>
+          <span class="tag">Optuna</span>
+          <span class="tag">NumPy</span>
+        </div>
+        <div class="card__footer">
+          <a href="https://github.com/{{ site.github_username }}" class="card__link" rel="noopener" target="_blank">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. LLM Interpretability -->
+    <div class="card" data-category="interpretability" data-reveal>
+      <div class="project-card__diagram" aria-hidden="true">
+        <svg viewBox="0 0 200 130" style="width:100%;height:100%;">
+          <rect width="200" height="130" fill="#0a1628"/>
+          <!-- Attention heatmap grid -->
+          <text x="100" y="14" text-anchor="middle" font-family="monospace" font-size="8" fill="#7ecfa0" opacity=".7">Attention Heatmap</text>
+          <!-- Tokens left -->
+          <text x="28" y="35" text-anchor="end" font-family="monospace" font-size="7" fill="#7ecfa0">[CLS]</text>
+          <text x="28" y="55" text-anchor="end" font-family="monospace" font-size="7" fill="#7ecfa0">the</text>
+          <text x="28" y="75" text-anchor="end" font-family="monospace" font-size="7" fill="#7ecfa0">cat</text>
+          <text x="28" y="95" text-anchor="end" font-family="monospace" font-size="7" fill="#7ecfa0">sat</text>
+          <!-- Tokens top -->
+          <text x="47" y="22" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">[CLS]</text>
+          <text x="80" y="22" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">the</text>
+          <text x="110" y="22" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">cat</text>
+          <text x="142" y="22" text-anchor="middle" font-family="monospace" font-size="7" fill="#7ecfa0">sat</text>
+          <!-- Heatmap cells (row 1) -->
+          <rect x="33" y="27" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".9"/>
+          <rect x="63" y="27" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".3"/>
+          <rect x="95" y="27" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".2"/>
+          <rect x="127" y="27" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".15"/>
+          <!-- Row 2 -->
+          <rect x="33" y="47" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".2"/>
+          <rect x="63" y="47" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".85"/>
+          <rect x="95" y="47" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".4"/>
+          <rect x="127" y="47" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".25"/>
+          <!-- Row 3 -->
+          <rect x="33" y="67" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".15"/>
+          <rect x="63" y="67" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".35"/>
+          <rect x="95" y="67" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".95"/>
+          <rect x="127" y="67" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".3"/>
+          <!-- Row 4 -->
+          <rect x="33" y="87" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".1"/>
+          <rect x="63" y="87" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".2"/>
+          <rect x="95" y="87" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".5"/>
+          <rect x="127" y="87" width="26" height="16" rx="1" fill="#2d7a4f" opacity=".8"/>
+          <!-- Colour scale -->
+          <defs>
+            <linearGradient id="heatscale" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#0a1628"/>
+              <stop offset="100%" stop-color="#2d7a4f"/>
+            </linearGradient>
+          </defs>
+          <rect x="155" y="30" width="10" height="60" rx="2" fill="url(#heatscale)"/>
+          <text x="167" y="35" font-family="monospace" font-size="6" fill="#7ecfa0">1.0</text>
+          <text x="167" y="93" font-family="monospace" font-size="6" fill="#7ecfa0">0.0</text>
+          <text x="100" y="120" text-anchor="middle" font-family="monospace" font-size="7" fill="#536878">Self-Attention Pattern Analysis</text>
+        </svg>
+      </div>
+      <div class="card__header">
+        <span class="card__badge card__badge--amber">Interpretability</span>
+        <h3 class="card__title">TransparentLM</h3>
+      </div>
+      <div class="card__body">
+        <div class="card__meta">
+          <span class="card__meta-item">🔬 Research</span>
+          <span class="card__meta-item">🔍 Analysis</span>
+        </div>
+        <p class="card__excerpt">
+          Interpretability toolkit for transformer language models. Implements
+          attention visualisation, activation patching, logit lens, and probing
+          classifiers to understand what LLMs learn and how they represent knowledge.
+        </p>
+        <div class="project-card__tags">
+          <span class="tag">Python</span>
+          <span class="tag">TransformerLens</span>
+          <span class="tag">Probing</span>
+          <span class="tag">Mechanistic</span>
+        </div>
+        <div class="card__footer">
+          <a href="https://github.com/{{ site.github_username }}" class="card__link" rel="noopener" target="_blank">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+
+  <!-- Datasets section -->
+  <div id="datasets" style="margin-top:5rem;">
+    <span class="section__label">Data</span>
+    <h2 class="section__title">Datasets &amp; Benchmarks</h2>
+    <p class="section__subtitle">
+      Curated datasets and evaluation suites released alongside our projects.
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Dataset</th>
+          <th>Domain</th>
+          <th>Size</th>
+          <th>Format</th>
+          <th>License</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>NeuralSpike-10K</strong></td>
+          <td>Spiking NNs</td>
+          <td>10,000 trials</td>
+          <td>HDF5</td>
+          <td>MIT</td>
+          <td><a href="https://github.com/{{ site.github_username }}">GitHub</a></td>
+        </tr>
+        <tr>
+          <td><strong>EvoArch-500</strong></td>
+          <td>NAS</td>
+          <td>500 architectures</td>
+          <td>JSON</td>
+          <td>Apache 2.0</td>
+          <td><a href="https://github.com/{{ site.github_username }}">GitHub</a></td>
+        </tr>
+        <tr>
+          <td><strong>LLM-SciEval</strong></td>
+          <td>LLM Benchmarks</td>
+          <td>5,000 Q&amp;A pairs</td>
+          <td>JSONL</td>
+          <td>CC-BY 4.0</td>
+          <td><a href="https://github.com/{{ site.github_username }}">GitHub</a></td>
+        </tr>
+        <tr>
+          <td><strong>MemoryReplay-Seq</strong></td>
+          <td>Continual Learning</td>
+          <td>20 task sequences</td>
+          <td>PyTorch</td>
+          <td>MIT</td>
+          <td><a href="https://github.com/{{ site.github_username }}">GitHub</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end container -->
+</div><!-- end section -->
